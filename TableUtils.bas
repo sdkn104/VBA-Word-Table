@@ -15,7 +15,7 @@
 '  Next
 '
 
-
+' Type Cell
 Public Type TableCell
     Left As Long  'Leftmost column index
     Right As Long  'Rightmost column index
@@ -25,25 +25,25 @@ Public Type TableCell
     IsMerged As Boolean 'True if the cell is merged with another cell and not the top-left cell in the merged cells
 End Type
 
-'メンバ
+'Private Members
 Private Cell_() As TableCell
 Private Cells_ As Collection
 Private RowCount_ As Long
 Private ColumnCount_ As Long
 
 
-'コンストラクタ
+'Constructor
 Private Sub Class_Initialize()
 End Sub
 
-'デストラクタ
+'Destructor
 Private Sub Class_Terminate()
   Erase Cell_
   Set Cells_ = Nothing
 End Sub
 
 
-'初期化
+'Initialization with Word Table class
 Public Sub Init(tbl As Table)
   Dim d As Object
   Dim colspan As Long, colIdx As Long
@@ -113,23 +113,22 @@ Public Sub Init(tbl As Table)
   Next
 End Sub
 
-
+' Return TableCell of cell(row, col)
 Property Get Cells(row As Long, col As Long) As TableCell
   Set Cells = Cell_(row, col)
 End Property
 
+' Return Collection of all cells
 Property Get Cells() As Collection
   Set Cells = Cells_
 End Property
 
-Property Get Cells() As Cells
-  Cells = Cells_
-End Property
-
+' Return Number of rows
 Property Get RowCount() As Long
   RowCount = RowCount_
 End Property
 
+' Return Number of columns
 Property Get ColumnCount() As Long
   ColumnCount = ColumnCount_
 End Property
