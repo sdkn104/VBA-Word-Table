@@ -4,6 +4,11 @@ VBA Utilities for MS Word Table
 This utility extract vertically/horizontally merged cells in Word tables, 
 and provides the interfaces for easy access to cells in the table.
 
+* `CreateCellMap(table)` returns 2-dim array of type `TableCell`, which is a cell map for Table object `table`.
+  Each element of the array contains row/column span, merged flag, and the pointer to the Cell object.
+* `GetTableCell(cell, cellMap)` returns the element of the cell map `cellMap` corresponding to the Cell object `cell`.
+* `GetTableCellText(cell)` returns text in the Cell object `cell`.
+
 ## Usage
 
 ```vb.net
