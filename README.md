@@ -48,3 +48,18 @@ and provides the interfaces for easy access to cells in the table.
 cellMap(2,1) : Top=2, Left=2, Bottom=3, Right=3, IsMerged=False
 
 cellMap(3,2) : Top=2, Left=2, Bottom=3, Right=3, IsMerged=True
+
+## Restriction
+
+* Uses MSXML2.DOMDocument
+* Tested on Windows 7, Office2013
+* On Windows 8.1 or later, replace MSXML2.DOMDocument with MSXML2.DOMDocument.6.0 in the code
+* When tables are nested, only top level (outside) table is extracted.
+
+## Acknowledgement
+
+* idea of how to detect horizontal cell merge from https://www.ka-net.org/blog/?p=2996
+
+
+
+
